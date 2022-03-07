@@ -1,4 +1,4 @@
-const encrypt = require("./encrypt");
+const encrypt = require("../app/services/encrypt");
 // @ponicode
 describe("encrypt.encrypt", () => {
 	test("0", async () => {
