@@ -37,7 +37,7 @@ const router = Router();
 
 // JOI : we use JOI (Validation) to check the formats of receipts from the client(string, number, boolean).
 // cache : we use cache (BDD REDIS) to temporarily store data in order to limit queries in POSTGRESQL
-// flush : we use flush (BDD REDIS) delete data 
+// flush : we use flush (BDD REDIS) delete data
 // jwtMW : check access permission
 // cloudMW : recover photos in base 64
 // regex : Double check on id with regex (exple:[1-9]) and joi (number between 1 and 9999)
@@ -105,7 +105,14 @@ router
 		cache,
 		houseController.findOne
 	)
-	.post("/houses", jwtMW, add_houseValidation, cloudMW, flush, houseController.save)
+	.post(
+		"/houses",
+		jwtMW,
+		add_houseValidation,
+		cloudMW,
+		flush,
+		houseController.save
+	)
 	.patch(
 		"/houses/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
@@ -133,7 +140,14 @@ router
 		cache,
 		animalController.findOne
 	)
-	.post("/animals", jwtMW, add_animalValidation, cloudMW, flush, animalController.save)
+	.post(
+		"/animals",
+		jwtMW,
+		add_animalValidation,
+		cloudMW,
+		flush,
+		animalController.save
+	)
 	.patch(
 		"/animals/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
@@ -161,7 +175,14 @@ router
 		cache,
 		photoController.findOne
 	)
-	.post("/photos", jwtMW, add_photoValidation, cloudMW, flush, photoController.save)
+	.post(
+		"/photos",
+		jwtMW,
+		add_photoValidation,
+		cloudMW,
+		flush,
+		photoController.save
+	)
 	.patch(
 		"/photos/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
@@ -224,7 +245,14 @@ router
 		cache,
 		plantController.findOne
 	)
-	.post("/plants", jwtMW, add_plantValidation, cloudMW, flush, plantController.save)
+	.post(
+		"/plants",
+		jwtMW,
+		add_plantValidation,
+		cloudMW,
+		flush,
+		plantController.save
+	)
 	.patch(
 		"/plants/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
@@ -252,7 +280,14 @@ router
 		cache,
 		typeController.findOne
 	)
-	.post("/types", jwtMW, add_typeValidation, cloudMW, flush, typeController.save)
+	.post(
+		"/types",
+		jwtMW,
+		add_typeValidation,
+		cloudMW,
+		flush,
+		typeController.save
+	)
 	.patch(
 		"/types/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
