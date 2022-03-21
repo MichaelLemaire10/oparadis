@@ -154,11 +154,17 @@ CREATE VIEW house_find_four as
 
 CREATE VIEW customer_all_id as
 	SELECT * ,
-	(SELECT array_agg(json_build_object('id', house.id)ORDER BY house.id asc)FROM house WHERE house.customer_id = customer.id) AS house,
-	(SELECT array_agg(json_build_object('id', animal.id)ORDER BY animal.id asc)FROM animal WHERE animal.customer_id = customer.id) AS animal,
-	(SELECT array_agg(json_build_object('id', plant.id)ORDER BY plant.id asc)FROM plant WHERE plant.customer_id = customer.id) AS plant,
-	(SELECT array_agg(json_build_object('id', photo.id)ORDER BY photo.id asc)FROM photo WHERE photo.customer_id = customer.id) AS photo,
-	(SELECT array_agg(json_build_object('id', absentee.id)ORDER BY absentee.id asc)FROM absentee WHERE absentee.customer_id = customer.id) AS absentee
+	(SELECT array_agg
+	(json_build_object('id', house.id)ORDER BY house.id asc)
+	FROM house WHERE house.customer_id = customer.id) AS house,
+	(SELECT array_agg(json_build_object('id', animal.id)ORDER BY animal.id asc)
+	FROM animal WHERE animal.customer_id = customer.id) AS animal,
+	(SELECT array_agg(json_build_object('id', plant.id)ORDER BY plant.id asc)
+	FROM plant WHERE plant.customer_id = customer.id) AS plant,
+	(SELECT array_agg(json_build_object('id', photo.id)ORDER BY photo.id asc)
+	FROM photo WHERE photo.customer_id = customer.id) AS photo,
+	(SELECT array_agg(json_build_object('id', absentee.id)ORDER BY absentee.id asc)
+	FROM absentee WHERE absentee.customer_id = customer.id) AS absentee
 	FROM customer;
 
 COMMIT;

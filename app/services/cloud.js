@@ -9,7 +9,7 @@ module.exports = {
 		// The image is sent to cloudinary and an object with several properties is retrieved
 		const result = await cloudinary.uploader.upload(data);
 		// retrieves the url and use split/splice/map/joints to add a format to the photo
-		result.url = result.url
+		result.url = result.secure_url
 			// split : delete a string pass as a parameter with split we recorver a array
 			.split("https://res.cloudinary.com/oparadis/image/upload/")
 			// splice : allows to place an element in an array or to replace an element splice takes 3 parameters

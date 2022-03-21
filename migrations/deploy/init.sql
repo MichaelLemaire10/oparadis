@@ -108,10 +108,9 @@ CREATE TABLE ABSENTEE (
 --? The function update the updated_at field
 CREATE OR REPLACE FUNCTION trigger_set_timestamp()
 RETURNS TRIGGER AS $$
-BEGIN
-  NEW.updated_at = NOW();
-  RETURN NEW;
-END;
+    BEGIN NEW.updated_at = NOW();
+    RETURN NEW;
+    END;
 $$ LANGUAGE plpgsql;
 
 
@@ -142,7 +141,8 @@ FOR EACH ROW
 EXECUTE PROCEDURE trigger_set_timestamp();
 
 --? The function fills the pseudo field with firstname 
-CREATE OR REPLACE FUNCTION trigger_set_pseudo() RETURNS trigger AS $$
+CREATE OR REPLACE FUNCTION trigger_set_pseudo() 
+RETURNS trigger AS $$
     BEGIN
         NEW.pseudo := NEW.firstname;
         RETURN NEW;
