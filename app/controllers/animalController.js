@@ -33,8 +33,7 @@ module.exports = {
 				id: +req.params.id,
 				...req.body,
 			}).update();
-			if (!animal.id) res.status(404).json('Not found');
-			res.json(animal);
+			!animal.id ? res.status(404).json('Not found') : res.json(animal);
 		} catch (err) {
 			res.status(500).json(new BaseError(err.message));
 		}
