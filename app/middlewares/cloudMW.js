@@ -49,7 +49,8 @@ module.exports = async (req, res, next) => {
         } else{
             next();
         }
-    } catch (error) {
-		console.log('cloudMW', error);
+    } catch (err) {
+		// console.log('cloudMW', err);
+        res.status(err.http_code).json(err.message);
     }
 };

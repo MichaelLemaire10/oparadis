@@ -5,7 +5,7 @@ db.connect();
 
 // oparadis:token: prefix of the key used to store in redis
 const prefix = "oparadis:token:";
-const timeout = 7200;
+const timeout = 15;
 
 module.exports = {
 	async cache(id, refreshToken) {

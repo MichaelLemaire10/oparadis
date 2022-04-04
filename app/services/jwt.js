@@ -12,7 +12,7 @@ module.exports = {
 			//return token
 			return jwt.sign({ data: user }, jwt_secret, {
 				algorithm: "HS256",
-				expiresIn: "5m",
+				expiresIn: "5s",
 			});
 		} catch (error) {
 			console.error(error);
@@ -34,7 +34,7 @@ module.exports = {
 			// Creation of a new refresh token and return this refresh token
 			return jwt.sign({ data: user }, refresh_jwt_secret, {
 				algorithm: "HS256",
-				expiresIn: "3600s",
+				expiresIn: "10s",
 			});
 		} catch (error) {
 			console.error(error);
